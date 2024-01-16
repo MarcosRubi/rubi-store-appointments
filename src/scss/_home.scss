@@ -1,0 +1,102 @@
+.logo {
+    filter: drop-shadow(0px 1px 1px var(--bg));
+    max-width: 200px;
+}
+
+.steps {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--bg-secondary);
+    border-radius: .25rem;
+    
+    &__header {
+        background-color: var(--bg-secondary);
+        padding: 2rem 1rem;
+        gap: 1rem;
+    }
+    &__body{
+        padding: 0rem 1rem 2rem 1rem;
+    }
+    &__footer{
+        padding: 0rem 1rem 2rem 1rem;
+        .prev{
+            
+            svg{
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__buttons {
+        gap: 1rem;
+
+        button {
+            padding: .76rem 1rem;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: none;
+            outline: none;
+            transition: transform .3s ease-in-out;
+            pointer-events: none;
+
+            &.active {
+                font-weight: bold;
+                background-color: var(--bg);
+                color: var(--text);
+                transform: scale(1.25);
+            }
+        }
+    }
+    &__item{
+        padding: 2rem 0;
+    }
+
+    .info-services{
+        ul{
+            margin-top: 1rem;
+        }
+    }
+
+    input {
+        appearance: none;
+    }
+
+    input::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+        width: 1rem;
+        height: 1rem;
+        border: 3px solid var(--primary-color);
+        transition: .3s;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    input:checked::before {
+        background-color: var(--primary-color);
+        background-image: url(/images/check.svg);
+    }
+
+    label {
+        padding: .5rem 0 .5rem 3rem;
+        position: relative;
+        cursor: pointer;
+    }
+
+}
+
+@media (width>767px) {
+    h2{
+        font-size: 1.5rem;
+    }
+    
+    .steps{
+        &__header{
+            flex-direction: row;
+        }
+    }
+
+}

@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Manicura básica",
+        "price": 15.00,
+        "duration": 60
+    },
+    {
+        "id": 2,
+        "name": "Uñas de gel",
+        "price": 20.00,
+        "duration": 90
+    },
+    {
+        "id": 3,
+        "name": "Pedicura spa",
+        "price": 25.00,
+        "duration": 75
+    },
+    {
+        "id": 4,
+        "name": "Diseño de uñas artísticas",
+        "price": 30.00,
+        "duration": 120
+    },
+    {
+        "id": 5,
+        "name": "Relleno de uñas acrílicas",
+        "price": 25.00,
+        "duration": 60
+    }
+]

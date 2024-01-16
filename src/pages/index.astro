@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HomePage from "../components/HomePage";
+
+---
+
+<Layout title="Agendar cita | Rubí Store">
+	<main class="container m-auto">
+		<div class="flex flex-column justify-center">
+			<img
+				src="/images/logo.webp"
+				alt="Logo Rubí Store"
+				class="logo m-auto"
+			/>
+			<HomePage client:only/>
+		</div>
+	</main>
+</Layout>
