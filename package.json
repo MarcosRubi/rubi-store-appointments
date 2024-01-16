@@ -18,5 +18,12 @@
     "react-dom": "^18.2.0",
     "vanilla-calendar-pro": "^2.9.2",
     "zustand": "^4.4.7"
+  },
+  "devDependencies": {
+    "standard": "^17.1.0"
+  }
+  , 
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
   }
 }
