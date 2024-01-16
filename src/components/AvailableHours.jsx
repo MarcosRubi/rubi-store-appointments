@@ -1,5 +1,3 @@
-import React from 'react'
-
 function AvailableHours () {
   return (
     <div className='available-hours flex flex-column'>

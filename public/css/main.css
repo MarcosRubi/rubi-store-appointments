@@ -235,6 +235,12 @@ button {
 .steps .available-hours button {
   display: block;
 }
+.steps .available-hours.wait {
+  max-width: 200px;
+  max-height: 350px;
+  text-align: center;
+  overflow-y: hidden;
+}
 .steps .info-services {
   margin-top: 2rem;
 }

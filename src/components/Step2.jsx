@@ -2,6 +2,7 @@ import VanillaCalendar from './VanillaCalendar'
 import 'vanilla-calendar-pro/build/vanilla-calendar.min.css'
 import AvailableHours from './AvailableHours'
 import { useDateSelected } from '../store/useServices'
+import WaitDateSelected from './WaitDateSelected'
 
 function Step2 ({ stepActive }) {
   const { dateSelected } = useDateSelected((state) => state)
@@ -13,7 +14,7 @@ function Step2 ({ stepActive }) {
         <div className='content flex justify-around items-center'>
           <VanillaCalendar />
           {
-                        dateSelected.length > 0 && <AvailableHours />
+                        dateSelected.length > 0 ? <AvailableHours /> : <WaitDateSelected />
                     }
         </div>
       </div>
