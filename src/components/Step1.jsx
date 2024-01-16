@@ -2,10 +2,10 @@ import ServiceItem from './ServiceItem.jsx'
 import services from '../data/services.json'
 import InfoServices from './InfoServices.jsx'
 
-function Step1() {
+function Step1({ stepActive }) {
     return (
         <>
-            <div className="steps__item" id="step-1">
+            <div className={`steps__item ${stepActive === 1 ? 'active' : ''} `} id="step-1">
                 <h2 className="text-center">Seleccione el/los servicio(s)</h2>
                 <div className="flex flex-column">
                     {
@@ -14,8 +14,8 @@ function Step1() {
                         })
                     }
                 </div>
+                <InfoServices />
             </div>
-            <InfoServices />
         </>
 
     )

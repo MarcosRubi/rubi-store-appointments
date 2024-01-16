@@ -13,10 +13,3 @@ export const useThemeStore = create((set) => ({
     return { theme: newTheme }
   })
 }))
-export const useColorSelectStore = create((set) => ({
-  color: window.localStorage.getItem('color') || 'default', // Lee del localStorage o establece un valor predeterminado
-  setColor: (newColor) => set((state) => {
-    window.localStorage.setItem('color', newColor) // Guarda el nuevo valor en el localStorage
-    return { color: newColor }
-  })
-}))

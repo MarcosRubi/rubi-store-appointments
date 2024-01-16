@@ -1,6 +1,7 @@
 import StepsButtons from './StepsButtons'
 import Step1 from "./Step1";
 import Step2 from "./Step2";
+import Step3 from "./Step3";
 import { useThemeStore } from '../store/themeStore'
 import { useEffect } from 'react'
 import StepsFooter from './StepsFooter';
@@ -21,12 +22,9 @@ function HomePage() {
 				<StepsButtons />
 			</header>
 			<div className="steps__body">
-				{
-					stepActive === 1 && <Step1 />
-				}
-				{
-					stepActive === 2 && <Step2 />
-				}
+				<Step1 stepActive={stepActive}  />
+				<Step2 stepActive={stepActive} />
+				<Step3 stepActive={stepActive} />
 			</div>
 			<StepsFooter />
 		</section>

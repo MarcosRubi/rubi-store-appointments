@@ -107,6 +107,10 @@ button {
   justify-content: space-between;
 }
 
+.justify-around {
+  justify-content: space-around;
+}
+
 .justify-end {
   justify-content: end;
 }
@@ -150,6 +154,19 @@ button {
   background-color: var(--text);
   border: 1px solid var(--bg);
   color: var(--bg);
+}
+
+::-webkit-scrollbar {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--text);
 }
 
 .logo {
@@ -197,6 +214,29 @@ button {
 }
 .steps__item {
   padding: 2rem 0;
+  display: none;
+}
+.steps__item.active {
+  display: block;
+}
+.steps__item .content {
+  flex-direction: column;
+  margin: 2rem 0;
+}
+.steps .available-hours {
+  gap: 1rem;
+  background-color: var(--bg-secondary);
+  padding: 1rem;
+  margin-top: 1rem;
+  max-height: 350px;
+  overflow-y: scroll;
+  border-radius: 0.25rem;
+}
+.steps .available-hours button {
+  display: block;
+}
+.steps .info-services {
+  margin-top: 2rem;
 }
 .steps .info-services ul {
   margin-top: 1rem;
@@ -232,6 +272,10 @@ button {
     font-size: 1.5rem;
   }
   .steps__header {
+    flex-direction: row;
+  }
+  .steps__item .content {
+    margin: 0;
     flex-direction: row;
   }
 }

@@ -5,18 +5,21 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: "Geist Medium";
     src: url('/fonts/Geist-Medium.otf') format('opentype');
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: "Geist SemiBold";
     src: url('/fonts/Geist-SemiBold.otf') format('opentype');
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: "Geist Ultrablack";
     src: url('/fonts/Geist-UltraBlack.otf') format('opentype');
@@ -24,102 +27,135 @@
     font-display: swap;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: var(--bg);
     color: var(--text);
     font-family: 'Geist Medium';
 }
 
-img{
+img {
     max-width: 100%;
 }
 
 h1,
 h2,
-h3{
+h3 {
     text-wrap: balance;
 }
+
 p,
-span{
+span {
     text-wrap: pretty;
 }
 
-h1{
+h1 {
     font-size: 2.5rem;
 }
-h2{
+
+h2 {
     font-size: 1.5rem;
 }
-li{
+
+li {
     list-style: none;
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
 }
-button{
+
+button {
     cursor: pointer;
     border-radius: .25rem;
 }
-.container{
+
+.container {
     width: 90%;
     max-width: 1440px;
 }
-.flex{
+
+.flex {
     display: flex;
 }
-.justify-center{
+
+.justify-center {
     justify-content: center;
 }
-.flex-column{
+
+.flex-column {
     flex-direction: column;
 }
-.items-center{
+
+.items-center {
     align-items: center;
 }
-.justify-between{
+
+.justify-between {
     justify-content: space-between;
 }
-.justify-end{
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-end {
     justify-content: end;
 }
 
-.m-auto{
+.m-auto {
     margin: 0 auto;
 }
-.text-center{
+
+.text-center {
     text-align: center;
 }
-.font-bold{
+
+.font-bold {
     font-family: 'Geist Ultrablack';
 }
-.btn{
+
+.btn {
     padding: .75rem 1.5rem;
     border-radius: .25rem;
     font-size: 1.25rem;
     transition: all .3s ease-in-out;
 }
 
-.btn-primary{
+.btn-primary {
     border: 1px solid var(--bg);
     background-color: var(--text);
     color: var(--bg);
-    &:hover{
+
+    &:hover {
         background-color: var(--bg-secondary);
         border: 1px solid var(--text);
         color: var(--text);
     }
 }
-.btn-secondary{
+
+.btn-secondary {
     border: 1px solid var(--text);
     background-color: transparent;
     color: var(--text);
-    &:hover{
+
+    &:hover {
         background-color: var(--text);
         border: 1px solid var(--bg);
         color: var(--bg);
     }
+}
+
+::-webkit-scrollbar {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+::-webkit-scrollbar-corner {
+    background-color: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--text);
 }
