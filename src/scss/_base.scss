@@ -96,6 +96,7 @@ button {
 .justify-between {
     justify-content: space-between;
 }
+
 .justify-around {
     justify-content: space-around;
 }
@@ -127,6 +128,13 @@ button {
     border: 1px solid var(--bg);
     background-color: var(--text);
     color: var(--bg);
+
+    &-selected,
+    &-selected:hover {
+        border: 1px solid var(--bg);
+        background-color: var(--text);
+        color: var(--bg);
+    }
 
     &:hover {
         background-color: var(--bg-secondary);

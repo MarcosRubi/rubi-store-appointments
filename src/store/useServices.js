@@ -3,7 +3,8 @@ import { create } from 'zustand'
 const localStorageKeys = {
   selectedServices: 'services',
   stepActive: 'step',
-  date: 'date'
+  date: 'date',
+  time: 'time'
 }
 
 function getStorageArray (key, defaultValue) {
@@ -13,6 +14,10 @@ function getStorageArray (key, defaultValue) {
 const getStorageNumber = (key, defaultValue) => {
   const storedValue = window.localStorage.getItem(key)
   return storedValue ? parseInt(storedValue, 10) : defaultValue
+}
+const getStorageString = (key, defaultValue) => {
+  const storedValue = window.localStorage.getItem(key)
+  return storedValue || defaultValue
 }
 
 export const useStepActive = create((set) => ({
@@ -30,6 +35,15 @@ export const useDateSelected = create((set) => ({
   setDateSelected: (optionSelected) => set((state) => {
     window.localStorage.setItem(localStorageKeys.date, JSON.stringify(optionSelected))
     return { dateSelected: optionSelected }
+  })
+}))
+
+export const useHourSelected = create((set) => ({
+  hourSelected: getStorageString(localStorageKeys.time, ''),
+
+  setHourSelected: (optionSelected) => set((state) => {
+    window.localStorage.setItem(localStorageKeys.time, optionSelected)
+    return { hourSelected: optionSelected }
   })
 }))
 

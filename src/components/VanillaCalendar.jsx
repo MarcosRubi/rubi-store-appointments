@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import VC from 'vanilla-calendar-pro'
 import 'vanilla-calendar-pro/build/vanilla-calendar.min.css'
-import { useDateSelected } from '../store/useServices'
+import { useDateSelected, useHourSelected } from '../store/useServices'
 
 function VanillaCalendar () {
   const { dateSelected, setDateSelected } = useDateSelected((state) => state)
+  const { setHourSelected } = useHourSelected((state) => state)
   const today = new Date()
   const currentYear = today.getFullYear()
   const currentMonth = (today.getMonth() + 1).toString().padStart(2, '0')
@@ -34,6 +35,7 @@ function VanillaCalendar () {
     actions: {
       clickDay (event, self) {
         setDateSelected(self.selectedDates)
+        setHourSelected(null)
       }
     }
   }

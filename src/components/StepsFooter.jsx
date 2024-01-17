@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/jsx-closing-tag-location */
-import { useDateSelected, useSelectedServices, useStepActive } from '../store/useServices'
+import { useDateSelected, useHourSelected, useSelectedServices, useStepActive } from '../store/useServices'
 
 const IconArrow = () => {
   return <svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'><polyline points='9 18 15 12 9 6' /></svg>
@@ -13,6 +13,7 @@ function StepsFooter () {
   const { stepActive, setStepActive } = useStepActive((state) => state)
   const { selectedServices } = useSelectedServices(state => state)
   const { dateSelected } = useDateSelected(state => state)
+  const { hourSelected } = useHourSelected(state => state)
 
   const handleOnClick = (option) => {
     if ((stepActive + option) > 4 || (stepActive + option) < 1) {
@@ -26,6 +27,10 @@ function StepsFooter () {
 
     if (stepActive > 1 && dateSelected.length === 0) {
       alert('Seleccione una fecha')
+      return
+    }
+    if (stepActive > 1 && hourSelected === null) {
+      alert('Seleccione una hora')
       return
     }
     setStepActive(stepActive + option)

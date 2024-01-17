@@ -139,6 +139,11 @@ button {
   background-color: var(--text);
   color: var(--bg);
 }
+.btn-primary-selected, .btn-primary-selected:hover {
+  border: 1px solid var(--bg);
+  background-color: var(--text);
+  color: var(--bg);
+}
 .btn-primary:hover {
   background-color: var(--bg-secondary);
   border: 1px solid var(--text);
