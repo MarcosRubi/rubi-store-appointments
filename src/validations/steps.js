@@ -19,12 +19,25 @@ export const validateStepTwo = (stepActive, dateSelected, hourSelected) => {
   return true
 }
 export const validateStepThree = (data) => {
-  if (data[0].name.trim().length === 0) {
+  const user = data[0]
+
+  if (user.name.trim().length === 0) {
     alert('El nombre es obligatorio')
     return false
   }
-  if (data[0].phone.trim().length === 0 && data[0].email.length === 0) {
+  if (user.phone.trim().length === 0 && user.email.trim().length === 0) {
     alert('Ingrese un número de teléfono o un correo para poder contactarlo')
+    return false
+  }
+  if (user.email.trim().length > 0) {
+    const regexCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+    if (!regexCorreo.test(user.email)) {
+      alert('El correo no es válido')
+      return false
+    }
+  }
+  if (user.phone.trim().length > 0 && user.phone.trim().length < 8) {
+    alert('El número de teléfono no es válido')
     return false
   }
   return true

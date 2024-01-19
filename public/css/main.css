@@ -46,7 +46,7 @@
 body {
   background-color: var(--bg);
   color: var(--text);
-  font-family: "Geist Medium";
+  font-family: "Geist Medium", sans-serif;
 }
 
 img {
@@ -286,7 +286,7 @@ sup {
 }
 
 form {
-  max-width: 25rem;
+  max-width: 500px;
 }
 form .input-group {
   margin-top: 2rem;
@@ -317,6 +317,12 @@ form .input-group.remember label {
   color: var(--text);
   padding: 0.5rem 0 0.5rem 2rem;
 }
+form .info {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: 1rem;
+  font-family: "Geist Light", sans-serif;
+}
 form input[type=email],
 form input[type=text],
 form textarea {
@@ -327,6 +333,7 @@ form textarea {
   outline: 0;
   border: none;
   font-size: 1rem;
+  font-family: "Geist Medium";
 }
 form textarea {
   height: auto;

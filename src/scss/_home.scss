@@ -130,7 +130,7 @@
 }
 
 form {
-    max-width: 25rem;
+    max-width: 500px;
 
     .input-group {
         margin-top: 2rem;
@@ -166,6 +166,12 @@ form {
             }
         }
     }
+    .info{
+        font-size: 0.8rem;
+        font-style: italic;
+        margin-top: 1rem;
+        font-family: 'Geist Light', sans-serif;
+    }
 
     input[type=email],
     input[type=text],
@@ -177,6 +183,7 @@ form {
         outline: 0;
         border: none;
         font-size: 1rem;
+        font-family: 'Geist Medium';
     }
 
     textarea {

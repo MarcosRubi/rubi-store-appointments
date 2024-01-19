@@ -96,6 +96,9 @@ function Step3 ({ stepActive }) {
               <span> Recordar mis datos personales</span>
             </label>
           </div>
+          <p className='info'>
+            Si no podemos contactarlo con la información proporcionada, lamentamos informarle que su cita será cancelada automáticamente. Por favor, proporcione datos actualizados para evitar cualquier inconveniente. Gracias por su cooperación.
+          </p>
         </form>
       </div>
     </>
