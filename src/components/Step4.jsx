@@ -24,8 +24,6 @@ function Step4 ({ stepActive }) {
     return `${dateArr[2]} de ${months[parseInt(dateArr[1]) - 1]} del ${dateArr[0]}`
   }
 
-  formatDate(dateSelected)
-
   const capitalizeString = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1)
   }
@@ -49,16 +47,16 @@ function Step4 ({ stepActive }) {
               <p />
             </ul>
 
-            <p>Fecha: <strong>{formatDate(dateSelected)}</strong></p>
+            <p>Fecha: <strong>{dateSelected.length > 0 && formatDate(dateSelected)}</strong></p>
             <p>Hora: <strong>{hourSelected}</strong></p>
           </div>
           <div className='info__client'>
             <h2>Cliente</h2>
-            <p className='capitalize'>Cliente: <strong>{dataUser[0].name}</strong> </p>
-            {dataUser[0].phone.trim().length > 0
-              ? <p>Teléfono: <strong> {dataUser[0].phone}</strong> </p>
-              : <p>Correo: <strong> {dataUser[0].email}</strong> </p>}
-            {dataUser[0].note.trim().length > 0 &&
+            <p className='capitalize'>Cliente: <strong>{dataUser[0]?.name}</strong> </p>
+            {dataUser[0]?.phone.trim().length > 0
+              ? <p>Teléfono: <strong> {dataUser[0]?.phone}</strong> </p>
+              : <p>Correo: <strong> {dataUser[0]?.email}</strong> </p>}
+            {dataUser[0]?.note.trim().length > 0 &&
               <p>Notas: <strong> {dataUser[0].note}</strong> </p>}
           </div>
         </div>

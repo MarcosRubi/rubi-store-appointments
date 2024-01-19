@@ -34,11 +34,15 @@ function StepsButtons () {
           ? 'active'
           : ''
         } 
-        ${stepActive < 2
-          ? 'not-allowed'
-          : ''
+        ${(validateStepOne(selectedServices, true) && validateStepTwo(stepActive, dateSelected, hourSelected, true)) || (stepActive === 2)
+          ? ''
+          : 'not-allowed'
         }`}
-        onClick={stepActive < 2 ? null : () => { HandleOnClickValidateStepTwo() }}
+        onClick={
+          (validateStepOne(selectedServices, true) && validateStepTwo(stepActive, dateSelected, hourSelected, true)) || (stepActive === 2)
+            ? () => { HandleOnClickValidateStepTwo() }
+            : null
+}
       >
         3
       </button>
@@ -48,11 +52,16 @@ function StepsButtons () {
           ? 'active'
           : ''
         } 
-        ${stepActive < 3
-          ? 'not-allowed'
-          : ''
+        ${
+          (validateStepOne(selectedServices, true) && validateStepTwo(stepActive, dateSelected, hourSelected, true) && validateStepThree(dataUser, true)) || (stepActive === 3)
+          ? ''
+          : 'not-allowed'
         }`}
-        onClick={stepActive < 3 ? null : () => { HandleOnClickValidateStepThree() }}
+        onClick={
+          (validateStepOne(selectedServices, true) && validateStepTwo(stepActive, dateSelected, hourSelected, true) && validateStepThree(dataUser, true)) || (stepActive === 3)
+            ? () => { HandleOnClickValidateStepThree() }
+            : null
+}
       >
         4
       </button>
