@@ -4,7 +4,9 @@ const localStorageKeys = {
   selectedServices: 'services',
   stepActive: 'step',
   date: 'date',
-  time: 'time'
+  time: 'time',
+  user: 'user',
+  remember: 'remember'
 }
 
 function getStorageArray (key, defaultValue) {
@@ -44,6 +46,20 @@ export const useHourSelected = create((set) => ({
   setHourSelected: (optionSelected) => set((state) => {
     window.localStorage.setItem(localStorageKeys.time, optionSelected)
     return { hourSelected: optionSelected }
+  })
+}))
+
+export const useDataUser = create((set) => ({
+  dataUser: getStorageArray(localStorageKeys.user, []),
+  rememberDataUser: getStorageString(localStorageKeys.remember, false),
+
+  setDataUser: (newDataUser) => set((state) => {
+    window.localStorage.setItem(localStorageKeys.user, JSON.stringify(newDataUser))
+    return { dataUser: newDataUser }
+  }),
+  setRememberDataUser: (optionSelected) => set((state) => {
+    window.localStorage.setItem(localStorageKeys.remember, optionSelected)
+    return { rememberDataUser: optionSelected }
   })
 }))
 

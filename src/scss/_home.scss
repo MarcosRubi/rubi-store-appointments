@@ -40,13 +40,16 @@
             background: none;
             outline: none;
             transition: transform .3s ease-in-out;
-            pointer-events: none;
 
             &.active {
                 font-weight: bold;
                 background-color: var(--bg);
                 color: var(--text);
                 transform: scale(1.25);
+            }
+
+            &.not-allowed{
+                cursor: not-allowed;
             }
         }
     }
@@ -123,6 +126,7 @@
         cursor: pointer;
     }
 
+
 }
 
 form {
@@ -148,6 +152,18 @@ form {
         .placeholder-icon {
             left: .25rem;
             top: 0.75rem;
+        }
+        &.remember{
+            input::before{
+                left: 0;
+            }
+            label{
+                position: relative;
+                pointer-events: all;
+                top: 0;
+                color: var(--text);
+                padding: 0.5rem 0 0.5rem 2rem;
+            }
         }
     }
 

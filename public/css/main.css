@@ -214,13 +214,15 @@ sup {
   background: none;
   outline: none;
   transition: transform 0.3s ease-in-out;
-  pointer-events: none;
 }
 .steps__buttons button.active {
   font-weight: bold;
   background-color: var(--bg);
   color: var(--text);
   transform: scale(1.25);
+}
+.steps__buttons button.not-allowed {
+  cursor: not-allowed;
 }
 .steps__item {
   padding: 2rem 0;
@@ -304,6 +306,16 @@ form .input-group .placeholder {
 form .input-group .placeholder-icon {
   left: 0.25rem;
   top: 0.75rem;
+}
+form .input-group.remember input::before {
+  left: 0;
+}
+form .input-group.remember label {
+  position: relative;
+  pointer-events: all;
+  top: 0;
+  color: var(--text);
+  padding: 0.5rem 0 0.5rem 2rem;
 }
 form input[type=email],
 form input[type=text],

@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react'
+import { useDataUser } from '../store/useServices'
+
 function Step3 ({ stepActive }) {
   const IconUser = () => {
     return (
@@ -26,36 +29,71 @@ function Step3 ({ stepActive }) {
     )
   }
 
+  const [name, setname] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [note, setNote] = useState('')
+  const { setDataUser, rememberDataUser, setRememberDataUser } = useDataUser((state) => state)
+
+  useEffect(() => {
+    const storedData = window.localStorage.getItem('user')
+
+    if (storedData) {
+      const parsedData = JSON.parse(storedData)
+      setname(parsedData[0].name || '')
+      setEmail(parsedData[0].email || '')
+      setPhone(parsedData[0].phone || '')
+      setNote(parsedData[0].note || '')
+    }
+  }, [])
+
+  useEffect(() => {
+    setDataUser([
+      {
+        name,
+        email,
+        phone,
+        note
+      }
+    ])
+  }, [name, email, phone, note, setDataUser])
+
   return (
     <>
       <div className={`steps__item ${stepActive === 3 ? 'active' : ''} `} id='step-3'>
         <h2 className='text-center'>Ingrese su información</h2>
         <form action='#' method='post' aria-label='Formulario de información del cliente' className='m-auto'>
           <div className='input-group'>
-            <input type='text' name='txtName' id='txtName' required='required' aria-required='true' />
+            <input type='text' name='txtName' id='txtName' required='required' aria-required='true' onChange={(e) => setname(e.target.value)} value={name} />
             <label htmlFor='txtName' className='placeholder flex'>Nombre <sup>*</sup></label>
             <label htmlFor='txtName' className='placeholder-icon'>
               <IconUser />
             </label>
           </div>
           <div className='input-group'>
-            <input type='text' name='txtPhone' id='txtPhone' required='required' aria-required='true' />
+            <input type='text' name='txtPhone' id='txtPhone' required='required' aria-required='true' onChange={(e) => setPhone(e.target.value)} value={phone} />
             <label htmlFor='txtPhone' className='placeholder'>Teléfono</label>
             <label htmlFor='txtPhone' className='placeholder-icon'>
               <IconPhone />
             </label>
           </div>
           <div className='input-group'>
-            <input type='email' name='txtEmail' id='txtEmail' required='required' aria-required='true' />
+            <input type='email' name='txtEmail' id='txtEmail' required='required' aria-required='true' onChange={(e) => setEmail(e.target.value)} value={email} />
             <label htmlFor='txtEmail' className='placeholder'>Email</label>
             <label htmlFor='txtEmail' className='placeholder-icon'>
               <IconEmail />
             </label>
           </div>
           <div className='input-group'>
-            <textarea name='txtMessage' id='txtMessage' cols='30' rows='5' required='required' aria-required='true' /> <label htmlFor='txtMessage' className='placeholder'>Notas</label>
+            <textarea name='txtMessage' id='txtMessage' cols='30' rows='5' required='required' aria-required='true' onChange={(e) => setNote(e.target.value)} value={note} /> <label htmlFor='txtMessage' className='placeholder'>Notas</label>
             <label htmlFor='txtMessage' className='placeholder-icon'>
               <IconComment />
+            </label>
+          </div>
+          <div className='input-group remember'>
+            <label htmlFor='remember'>
+              <input type='checkbox' name='remember' id='remember' onChange={(e) => setRememberDataUser(e.target.checked)} checked={rememberDataUser} />
+              <span> Recordar mis datos personales</span>
             </label>
           </div>
         </form>

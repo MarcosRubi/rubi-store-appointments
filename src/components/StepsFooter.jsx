@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/jsx-closing-tag-location */
-import { useDateSelected, useHourSelected, useSelectedServices, useStepActive } from '../store/useServices'
+import { useDataUser, useDateSelected, useHourSelected, useSelectedServices, useStepActive } from '../store/useServices'
+import { validateStepOne, validateStepThree, validateStepTwo } from '../validations/steps'
 
 const IconArrow = () => {
   return <svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'><polyline points='9 18 15 12 9 6' /></svg>
@@ -14,27 +15,31 @@ function StepsFooter () {
   const { selectedServices } = useSelectedServices(state => state)
   const { dateSelected } = useDateSelected(state => state)
   const { hourSelected } = useHourSelected(state => state)
+  const { dataUser } = useDataUser(state => state)
 
-  const handleOnClick = (option) => {
-    if ((stepActive + option) > 4 || (stepActive + option) < 1) {
-      return
-    }
-
-    if (selectedServices.length <= 0) {
-      alert('Seleccione al menos un servicio')
+  const handleOnClickNext = () => {
+    if ((stepActive + 1) > 4 || (stepActive + 1) < 1) {
       return
     }
 
-    if (stepActive > 1 && dateSelected.length === 0) {
-      alert('Seleccione una fecha')
-      return
+    if (stepActive === 1) {
+      if (validateStepOne(selectedServices)) {
+        setStepActive(stepActive + 1)
+      }
     }
-    if (stepActive > 1 && hourSelected === null) {
-      alert('Seleccione una hora')
-      return
+
+    if (stepActive === 2) {
+      if (validateStepTwo(stepActive, dateSelected, hourSelected)) {
+        setStepActive(stepActive + 1)
+      }
     }
-    setStepActive(stepActive + option)
+    if (stepActive === 3) {
+      if (validateStepThree(dataUser)) {
+        setStepActive(4)
+      }
+    }
   }
+
   const handleOnClickGoBack = (option) => {
     if ((stepActive + option) < 1) {
       return
@@ -55,11 +60,11 @@ function StepsFooter () {
 
       {
                 stepActive === 4
-                  ? <button className='btn btn-primary flex items-center prev' onClick={() => { handleOnClick(-1) }}>
+                  ? <button className='btn btn-primary flex items-center prev' onClick={() => { handleOnClickNext(-1) }}>
                     <span>Agendar cita</span>
                     <IconPlus />
                   </button>
-                  : <button className='btn btn-primary flex items-center next' onClick={() => { handleOnClick(+1) }}>
+                  : <button className='btn btn-primary flex items-center next' onClick={() => { handleOnClickNext(+1) }}>
                     <span>Siguiente</span>
                     <IconArrow />
                   </button>
