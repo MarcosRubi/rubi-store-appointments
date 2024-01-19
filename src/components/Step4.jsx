@@ -53,9 +53,10 @@ function Step4 ({ stepActive }) {
           <div className='info__client'>
             <h2>Cliente</h2>
             <p className='capitalize'>Cliente: <strong>{dataUser[0]?.name}</strong> </p>
-            {dataUser[0]?.phone.trim().length > 0
-              ? <p>Teléfono: <strong> {dataUser[0]?.phone}</strong> </p>
-              : <p>Correo: <strong> {dataUser[0]?.email}</strong> </p>}
+            {dataUser[0]?.phone.trim().length > 0 &&
+              <p>Teléfono: <strong> {dataUser[0]?.phone}</strong> </p>}
+            {dataUser[0]?.email.trim().length > 0 &&
+              <p>Correo: <strong> {dataUser[0]?.email}</strong> </p>}
             {dataUser[0]?.note.trim().length > 0 &&
               <p>Notas: <strong> {dataUser[0].note}</strong> </p>}
           </div>

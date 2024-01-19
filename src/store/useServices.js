@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-const localStorageKeys = {
+export const localStorageKeys = {
   selectedServices: 'services',
   stepActive: 'step',
   date: 'date',

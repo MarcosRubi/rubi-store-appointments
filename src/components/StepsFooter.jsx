@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/jsx-closing-tag-location */
-import { useDataUser, useDateSelected, useHourSelected, useSelectedServices, useStepActive } from '../store/useServices'
+import { useDataUser, useDateSelected, useHourSelected, useSelectedServices, useStepActive, localStorageKeys } from '../store/useServices'
 import { validateStepOne, validateStepThree, validateStepTwo } from '../validations/steps'
 
 const IconArrow = () => {
@@ -15,7 +15,7 @@ function StepsFooter () {
   const { selectedServices } = useSelectedServices(state => state)
   const { dateSelected } = useDateSelected(state => state)
   const { hourSelected } = useHourSelected(state => state)
-  const { dataUser } = useDataUser(state => state)
+  const { dataUser, rememberDataUser } = useDataUser(state => state)
 
   const handleOnClickNext = () => {
     if ((stepActive + 1) > 4 || (stepActive + 1) < 1) {
@@ -49,7 +49,13 @@ function StepsFooter () {
   }
 
   const handleOnClickConfirm = () => {
+    Object.values(localStorageKeys).forEach(item => {
+      if (!(rememberDataUser && (item === 'user' || item === 'remember'))) {
+        localStorage.removeItem(item)
+      }
+    })
     alert('Cita confirmada')
+    location.reload()
   }
 
   return (
