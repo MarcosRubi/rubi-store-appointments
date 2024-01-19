@@ -58,7 +58,7 @@ export const useDataUser = create((set) => ({
     return { dataUser: newDataUser }
   }),
   setRememberDataUser: (optionSelected) => set((state) => {
-    window.localStorage.setItem(localStorageKeys.remember, optionSelected)
+    window.localStorage.setItem(localStorageKeys.remember, JSON.stringify(optionSelected))
     return { rememberDataUser: optionSelected }
   })
 }))

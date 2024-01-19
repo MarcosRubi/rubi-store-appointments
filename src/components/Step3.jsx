@@ -92,7 +92,7 @@ function Step3 ({ stepActive }) {
           </div>
           <div className='input-group remember'>
             <label htmlFor='remember'>
-              <input type='checkbox' name='remember' id='remember' onChange={(e) => setRememberDataUser(e.target.checked)} checked={rememberDataUser} />
+              <input type='checkbox' name='remember' id='remember' onChange={(e) => setRememberDataUser(e.target.checked)} checked={JSON.parse(rememberDataUser)} />
               <span> Recordar mis datos personales</span>
             </label>
           </div>
