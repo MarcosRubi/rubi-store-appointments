@@ -234,6 +234,8 @@ sup {
 .steps__item {
   padding: 2rem 0;
   display: none;
+  opacity: 0;
+  animation: reveal 0.5s ease-in-out both;
 }
 .steps__item.active {
   display: block;
@@ -383,6 +385,11 @@ form .input-group textarea:valid ~ .placeholder {
   }
   .steps .info h2 {
     margin-bottom: 1rem;
+  }
+}
+@keyframes reveal {
+  100% {
+    opacity: 1;
   }
 }
 
