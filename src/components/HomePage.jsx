@@ -6,6 +6,7 @@ import { useThemeStore } from '../store/themeStore'
 import { useEffect } from 'react'
 import StepsFooter from './StepsFooter'
 import { useStepActive } from '../store/useServices'
+import Step4 from './Step4'
 
 function HomePage () {
   const { theme } = useThemeStore((state) => state)
@@ -25,6 +26,7 @@ function HomePage () {
         <Step1 stepActive={stepActive} />
         <Step2 stepActive={stepActive} />
         <Step3 stepActive={stepActive} />
+        <Step4 stepActive={stepActive} />
       </div>
       <StepsFooter />
     </section>

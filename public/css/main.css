@@ -179,6 +179,10 @@ sup {
   font-size: 1rem;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 .logo {
   filter: drop-shadow(0px 1px 1px var(--bg));
   max-width: 200px;
@@ -203,6 +207,9 @@ sup {
 }
 .steps__footer .prev svg {
   transform: rotate(180deg);
+}
+.steps__footer .confirm svg {
+  margin-left: 0.25rem;
 }
 .steps__buttons {
   gap: 1rem;
@@ -284,6 +291,15 @@ sup {
   position: relative;
   cursor: pointer;
 }
+.steps .info {
+  gap: 1rem;
+}
+.steps .info li {
+  margin: 0;
+}
+.steps .info ul {
+  margin-bottom: 1rem;
+}
 
 form {
   max-width: 500px;
@@ -359,6 +375,14 @@ form .input-group textarea:valid ~ .placeholder {
   .steps__item .content {
     margin: 0;
     flex-direction: row;
+  }
+  .steps .info {
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 2rem;
+  }
+  .steps .info h2 {
+    margin-bottom: 1rem;
   }
 }
 

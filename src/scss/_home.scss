@@ -28,6 +28,11 @@
                 transform: rotate(180deg);
             }
         }
+        .confirm{
+            svg{
+                margin-left: 0.25rem;
+            }
+        }
     }
 
     &__buttons {
@@ -126,6 +131,16 @@
         cursor: pointer;
     }
 
+    .info{
+        gap: 1rem;
+        li{
+            margin: 0;
+        }
+        ul{
+            margin-bottom: 1rem;
+        } 
+    }
+
 
 }
 
@@ -217,6 +232,14 @@ form {
             .content {
                 margin: 0;
                 flex-direction: row;
+            }
+        }
+        .info{
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 2rem;
+            h2{
+                margin-bottom: 1rem;
             }
         }
     }

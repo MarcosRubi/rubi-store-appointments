@@ -7,8 +7,8 @@ const IconArrow = () => {
   return <svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'><polyline points='9 18 15 12 9 6' /></svg>
 }
 
-const IconPlus = () => {
-  return <svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'><line x1='12' y1='5' x2='12' y2='19' /><line x1='5' y1='12' x2='19' y2='12' /></svg>
+const IconCheck = () => {
+  return <svg width='1em' height='1em' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'><polyline points='9 11 12 14 22 4' /><path d='M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11' /></svg>
 }
 function StepsFooter () {
   const { stepActive, setStepActive } = useStepActive((state) => state)
@@ -48,6 +48,10 @@ function StepsFooter () {
     setStepActive(stepActive + option)
   }
 
+  const handleOnClickConfirm = () => {
+    alert('Cita confirmada')
+  }
+
   return (
     <footer className={`steps__footer flex items-center ${stepActive === 1 ? 'justify-end' : 'justify-between'}`}>
       {
@@ -60,9 +64,9 @@ function StepsFooter () {
 
       {
                 stepActive === 4
-                  ? <button className='btn btn-primary flex items-center prev' onClick={() => { handleOnClickNext(-1) }}>
-                    <span>Agendar cita</span>
-                    <IconPlus />
+                  ? <button className='btn btn-primary flex items-center confirm' onClick={() => { handleOnClickConfirm() }}>
+                    <span>Confirmar</span>
+                    <IconCheck />
                   </button>
                   : <button className='btn btn-primary flex items-center next' onClick={() => { handleOnClickNext(+1) }}>
                     <span>Siguiente</span>
